@@ -11,14 +11,14 @@ __check_similar_name_installed(){
     fi
 }
 
-
-
 __install_privacy_addons(){
     mkdir $PROFILE_DIR/extensions
-    # ublock origin
-    wget "https://addons.mozilla.org/firefox/downloads/file/3853583/ublock_origin-1.38.6-an+fx.xpi" -O $1/extensions/uBlock0@raymondhill.net.xpi
-    # decentraleyes
-    wget "https://addons.mozilla.org/firefox/downloads/file/3833987/decentraleyes-2.0.16-an+fx.xpi" -O $1/extensions/jid1-BoFifL9Vbdl2zQ@jetpack.xpi
+    # UBlock Origin
+    wget "https://addons.mozilla.org/firefox/downloads/file/3853583/ublock_origin-1.38.6-an+fx.xpi" -O "$1/extensions/uBlock0@raymondhill.net.xpi"
+    # Decentraleyes
+    wget "https://addons.mozilla.org/firefox/downloads/file/3833987/decentraleyes-2.0.16-an+fx.xpi" -O "$1/extensions/jid1-BoFifL9Vbdl2zQ@jetpack.xpi"
+    # Clear URLs
+    # wget "https://addons.mozilla.org/firefox/downloads/file/3748919/clearurls-1.21.0-an+fx.xpi" -O "$1/extensions/{$(uuidgen)}.xpi"
 }
 
 findicon(){
