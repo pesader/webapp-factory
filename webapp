@@ -21,6 +21,20 @@ __install_privacy_addons(){
     # wget "https://addons.mozilla.org/firefox/downloads/file/3748919/clearurls-1.21.0-an+fx.xpi" -O "$1/extensions/{$(uuidgen)}.xpi"
 }
 
+help(){
+    echo "webapp-factory 0.1"
+    echo "A simple shell script to generate webapps using Firefox"
+    echo ""
+    echo "Usage: ./webapp [subcommand] [options]"
+    echo "Subcommands:"
+    echo "    install: installs a webapp"
+    echo "    remove: removes a webapp"
+    echo "    findicon: searches available icons"
+    echo ""
+    echo "Get help with each subcommand using the -h flag"
+    echo "for example: webapp install -h"
+}
+
 findicon(){
     query=$1
     while getopts ":i" opt; do
@@ -172,7 +186,7 @@ uninstall(){
     remove $name
 }
 
-if [[ $1 =~ ^(install|uninstall|remove|findicon)$ ]]; then
+if [[ $1 =~ ^(install|uninstall|remove|findicon|help)$ ]]; then
     "$@"
 else
     echo "Invalid subcommand $1" >&2
