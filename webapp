@@ -80,7 +80,7 @@ install(){
     firefox -CreateProfile $PROFILE_NAME
 
     # write profile name to a file, to facilitate uninstallation
-    if [ -f ./$INSTALLED_FILENAME]; then
+    if [ -f ./$INSTALLED_FILENAME ]; then
         echo $PROFILE_NAME >> ./$INSTALLED_FILENAME
     else
         touch ./installed.txt
