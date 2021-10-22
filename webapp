@@ -1,7 +1,6 @@
 #!/bin/bash
 
 FIREFOX_CONFIG_DIR=$HOME/.mozilla/firefox
-INSTALLED_FILENAME=installed.txt
 
 __check_similar_name_installed(){
     if [ $(find $HOME/.mozilla/firefox -name "*$1"  | wc -l) -gt 0 ];
@@ -79,14 +78,6 @@ install(){
     # create a new Firefox profile with a unique name
     PROFILE_NAME="$(uuidgen)-$name"
     firefox -CreateProfile $PROFILE_NAME
-
-    # write profile name to a file, to facilitate uninstallation
-    if [ -f ./$INSTALLED_FILENAME]; then
-        echo $PROFILE_NAME >> ./$INSTALLED_FILENAME
-    else
-        touch ./installed.txt
-        echo $PROFILE_NAME >> ./$INSTALLED_FILENAME
-    fi
 
     # get absolute path to newly created profile
     PROFILE_DIR=$(find $FIREFOX_CONFIG_DIR -name "*$PROFILE_NAME")
