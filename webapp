@@ -41,7 +41,6 @@ findicon(){
         done
     else
         echo "No icons found!"
-        echo "Install the Papirus icon theme to get more variety :)"
     fi
 }
 
