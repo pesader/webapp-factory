@@ -103,18 +103,17 @@ install(){
         __install_privacy_addons $PROFILE_DIR
     fi
 
-    # write a desktop entry
+# write a desktop entry
     CONTENT=$(cat <<EOF
-    [Desktop Entry]\n
-    Version=1.0\n
-    Type=Application\n
-    Name=$2\n
-    Icon=$icon\n
-    Exec=firefox --no-remote -P "$PROFILE_NAME" --name=$2 --class=$2 $1\n
-    Categories=Utility;\n
-    StartupWMClass=$2\n
-    EOF
-    )
+[Desktop Entry]\n
+Version=1.0\n
+Type=Application\n
+Name=$name\n
+Icon=applications-webapps\n
+Exec=firefox --no-remote -P "$PROFILE_NAME" --name=$name --class=$name $link\n
+Categories=Utility;\n
+StartupWMClass=$name\n
+EOF)
 
     echo -e $CONTENT > $HOME/.local/share/applications/$PROFILE_NAME-webapp.desktop
 
