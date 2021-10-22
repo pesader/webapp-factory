@@ -108,11 +108,13 @@ install(){
 Version=1.0\n
 Type=Application\n
 Name=$name\n
-Icon=applications-webapps\n
+Icon=$icon\n
+NoDisplay=false\n
 Exec=firefox --no-remote -P "$PROFILE_NAME" --name=$name --class=$name $link\n
 Categories=Utility;\n
 StartupWMClass=$name\n
-EOF)
+EOF
+)
 
     echo -e $CONTENT > $HOME/.local/share/applications/$PROFILE_NAME-webapp.desktop
 
