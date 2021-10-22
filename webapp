@@ -120,7 +120,59 @@ EOF
 
 }
 
-if [[ $1 =~ ^(install|remove|uninstall|findicon)$ ]]; then
+remove(){
+    name=$1
+    while getopts ":n:" opt; do
+        case $opt in
+            n)
+                name="$OPTARG"
+                ;;
+            :)
+                echo "Option -$OPTARG requires an argument." >&2
+                exit 1
+                ;;
+            \?)
+                echo "Invalid option: -$OPTARG" >&2
+                exit 1
+                ;;
+        esac
+    done
+
+    if grep -q $name $INSTALLED_FILENAME; then
+        app_id="$(grep $name $INSTALLED_FILENAME)"
+        # remove desktop entry
+        rm "$HOME/.local/share/applications/$app_id-webapp.desktop"
+        # remove firefox profile
+        profile_dir=$(find $FIREFOX_CONFIG_DIR -name "*$app_id")
+        rm -rf profile_dir
+        # remove app id from installed.txt
+        sed -i "/$app_id/d" $INSTALLED_FILENAME
+    else
+        echo "$name not installed!"
+    fi
+}
+
+uninstall(){
+    name=$1
+    while getopts ":n:" opt; do
+        case $opt in
+            n)
+                name="$OPTARG"
+                ;;
+            :)
+                echo "Option -$OPTARG requires an argument." >&2
+                exit 1
+                ;;
+            \?)
+                echo "Invalid option: -$OPTARG" >&2
+                exit 1
+                ;;
+        esac
+    done
+    remove $name
+}
+
+if [[ $1 =~ ^(install|uninstall|remove|findicon)$ ]]; then
     "$@"
 else
     echo "Invalid subcommand $1" >&2
