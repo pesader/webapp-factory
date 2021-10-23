@@ -158,7 +158,7 @@ remove(){
         rm "$HOME/.local/share/applications/$app_id-webapp.desktop"
         # remove firefox profile
         profile_dir=$(find $FIREFOX_CONFIG_DIR -name "*$app_id")
-        rm -rf profile_dir
+        rm -rf $profile_dir
         # remove app id from installed.txt
         sed -i "/$app_id/d" $INSTALLED_FILENAME
     else
