@@ -23,6 +23,7 @@ __install_privacy_addons(){
 
 __install_help(){
     echo "Usage: webapp install [-l] link [-n] name [-i icon] [-p]"
+    echo ""
     echo "Options:"
     echo "    -l: link to the website you want to make a webapp of"
     echo "    -n: name you want to give to the webapp"
@@ -31,6 +32,7 @@ __install_help(){
     echo "    -p: option to install the privacy add-ons UBlock Origin"
     echo "        and Decentraleyes. Requires manual enabling"
     echo "    -h: shows this help menu"
+    echo ""
     echo "Examples:"
     echo "    webapp install https://app.element.io/ Element"
     echo "    webapp install -l https://app.element.io/ -n Element -i element -p"
@@ -39,9 +41,11 @@ __install_help(){
 
 __remove_help(){
     echo "Usage: webapp remove [-n] name"
+    echo ""
     echo "Options:"
     echo "    -n: name of the webapp you want to remove"
     echo "    -h: shows this help menu"
+    echo ""
     echo "Examples:"
     echo "    webapp remove Element"
     echo "    webapp remove -n Element"
@@ -51,6 +55,7 @@ __findicon_help(){
     echo "Usage: webapp findicon [-i] query"
     echo "    -i: name of the icon you are looking for"
     echo "    -h: shows this help menu"
+    echo ""
     echo "Examples:"
     echo "    webapp findicon jitsi"
     echo "    webapp findicon email"
@@ -73,8 +78,12 @@ help(){
 
 findicon(){
     query=$1
-    while getopts ":i" opt; do
+    while getopts ":i:h" opt; do
         case $opt in
+            h)
+                __findicon_help
+                exit 1
+                ;;
             i)
                 query="$OPTARG"
                 ;;
@@ -99,8 +108,12 @@ install(){
     name=$2
     icon="applications-webapps"
     privacy=false
-    while getopts ":l:n:i:p" opt; do
+    while getopts ":l:n:i:ph" opt; do
         case $opt in
+            h)
+                __install_help
+                exit 0;
+                ;;
             l)
                 link="$OPTARG"
                 ;;
@@ -172,8 +185,12 @@ EOF
 
 remove(){
     name=$1
-    while getopts ":n:" opt; do
+    while getopts ":n:h" opt; do
         case $opt in
+            h)
+                __remove_help
+                exit 0
+                ;;
             n)
                 name="$OPTARG"
                 ;;
