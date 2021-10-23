@@ -40,7 +40,7 @@ __install_help(){
 __remove_help(){
     echo "Usage: webapp remove [-n] name"
     echo "Options:"
-    echo "    -n: name of the webapp you want to remove"
+    echo "    -n: name of the webapp you want to remove (case sensitive)"
     echo "    -h: shows this help menu"
     echo "Examples:"
     echo "    webapp remove Element"
