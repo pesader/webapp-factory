@@ -202,27 +202,7 @@ remove(){
     fi
 }
 
-uninstall(){
-    name=$1
-    while getopts ":n:" opt; do
-        case $opt in
-            n)
-                name="$OPTARG"
-                ;;
-            :)
-                echo "Option -$OPTARG requires an argument." >&2
-                exit 1
-                ;;
-            \?)
-                echo "Invalid option: -$OPTARG" >&2
-                exit 1
-                ;;
-        esac
-    done
-    remove $name
-}
-
-if [[ $1 =~ ^(install|uninstall|remove|findicon|help)$ ]]; then
+if [[ $1 =~ ^(install|remove|findicon|help)$ ]]; then
     "$@"
 else
     echo "Invalid subcommand $1" >&2
