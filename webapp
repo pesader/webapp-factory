@@ -40,7 +40,7 @@ __install_help(){
 __remove_help(){
     echo "Usage: webapp remove [-n] name"
     echo "Options:"
-    echo "    -n: name of the webapp you want to remove (case sensitive)"
+    echo "    -n: name of the webapp you want to remove"
     echo "    -h: shows this help menu"
     echo "Examples:"
     echo "    webapp remove Element"
@@ -188,8 +188,8 @@ remove(){
         esac
     done
 
-    if grep -q $name $INSTALLED_FILENAME; then
-        app_id="$(grep $name $INSTALLED_FILENAME)"
+    if grep -qi $name $INSTALLED_FILENAME; then
+        app_id="$(grep -i $name $INSTALLED_FILENAME)"
         # remove desktop entry
         rm "$HOME/.local/share/applications/$app_id-webapp.desktop"
         # remove firefox profile
