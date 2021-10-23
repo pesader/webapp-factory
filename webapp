@@ -21,18 +21,54 @@ __install_privacy_addons(){
     # wget "https://addons.mozilla.org/firefox/downloads/file/3748919/clearurls-1.21.0-an+fx.xpi" -O "$1/extensions/{$(uuidgen)}.xpi"
 }
 
+__install_help(){
+    echo "Usage: webapp install [-l] link [-n] name [-i icon] [-p]"
+    echo "Options:"
+    echo "    -l: link to the website you want to make a webapp of"
+    echo "    -n: name you want to give to the webapp"
+    echo "    -i: icon of the webapp, which you can find with the findicon"
+    echo "        subcommand. Defaults to 'applications-webapps' icon"
+    echo "    -p: option to install the privacy add-ons UBlock Origin"
+    echo "        and Decentraleyes. Requires manual enabling"
+    echo "    -h: shows this help menu"
+    echo "Examples:"
+    echo "    webapp install https://app.element.io/ Element"
+    echo "    webapp install -l https://app.element.io/ -n Element -i element -p"
+
+}
+
+__remove_help(){
+    echo "Usage: webapp remove [-n] name"
+    echo "Options:"
+    echo "    -n: name of the webapp you want to remove"
+    echo "    -h: shows this help menu"
+    echo "Examples:"
+    echo "    webapp remove Element"
+    echo "    webapp remove -n Element"
+}
+
+__findicon_help(){
+    echo "Usage: webapp findicon [-i] query"
+    echo "    -i: name of the icon you are looking for"
+    echo "    -h: shows this help menu"
+    echo "Examples:"
+    echo "    webapp findicon jitsi"
+    echo "    webapp findicon email"
+}
+
 help(){
     echo "webapp-factory 0.1"
     echo "A simple shell script to generate webapps using Firefox"
     echo ""
-    echo "Usage: ./webapp [subcommand] [options]"
+    echo "Usage: webapp [subcommand] [options]"
     echo "Subcommands:"
-    echo "    install: installs a webapp"
-    echo "    remove: removes a webapp"
+    echo "    install: installs a webapp given a link and a name"
+    echo "    remove: removes a webapp given its name"
     echo "    findicon: searches available icons"
+    echo "    help: shows this help menu"
     echo ""
     echo "Get help with each subcommand using the -h flag"
-    echo "for example: webapp install -h"
+    echo "like so: webapp install -h"
 }
 
 findicon(){
