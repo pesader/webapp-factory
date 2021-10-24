@@ -2,7 +2,7 @@
     <img src="./assets/logo.png" alt="logo" width="200"/>
 </p>
 
-[![en-us](https://img.shields.io/badge/README-EN--US-orange.svg)](https://github.com/pesader/webapp-factory/README.md)
+[![en-us](https://img.shields.io/badge/README-EN--US-orange.svg)](https://github.com/pesader/webapp-factory/blob/master/README.md)
 
 # Webapp Factory
 
@@ -85,7 +85,7 @@ Esse programa foi escrito para sistemas operacionais GNU/Linux, e foi testado no
 
 É necessário ter `firefox`, `bash`, e `wget` instalados para que esse programa funcione (a maioria das distribuições GNU/Linux já vem com eles instalados). Os ícones [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/) não são necessários mas altamente recomendados, pois contém muitos ícones adicionais.
 
-## Crédito
+## Créditos
 
 Esse programa é, em grande medida, uma automatização das instruções descritas [nesse](https://www.reddit.com/r/firefox/comments/li2lqg/comment/gn2sltw/) comentário do Reddit, pelo usuário [u/Apoema](https://www.reddit.com/user/Apoema/).
 
