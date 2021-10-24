@@ -1,10 +1,8 @@
 # Webapp Factory
 
-A simple shell script to generate webapps using Firefox
+![](./assets/logo.png)
 
-https://user-images.githubusercontent.com/65264536/138526905-5a27d03e-f2fe-4152-ac39-2782dc1e8bc0.mp4
-
-These webapps:
+A simple shell script to generate webapps using Firefox, which
 
 - install instantly and without root privelege
 - are recognized as full-blown applications by your desktop environment/widow manager
@@ -13,42 +11,49 @@ These webapps:
 - are setup with sane privacy and security defaults
 - can optionally come with privacy add-ons (UBlock Origin and Decentraleyes) pre-installed
 
+**DISCLAIMER:** this is my first bash script, so expect some rough edges here and there
+
 ## How to use it
+
+First clone this repository, then `cd` into it:
+
+```bash
+git clone https://github.com/pesader/webapp-factory
+cd webapp-factory
+```
+
+There's no way to install webapp-factory globally for now (working on it!), so you must run it from the root directory of the repository.
 
 ### Webapp installation
 
-To install webapps, this script need at least a link to a website (first parameter) and a name (second parameter), for example:
+To install webapps, this script needs at least a link to a website (first parameter) and a name (second parameter), for example:
 
 ```bash
-webapp install https://app.element.io/ Element
+./webapp install https://app.element.io/ Element
 ```
 
-You can also run the script with the `-l` (short for "link") and `-n` (short for "name") flags, like so:
+You can also specify the link and the name of webapp using the `-l` (short for "link") and `-n` (short for "name") flags. There's also the option to set an icon using the `-i` flag! Let's first use the findicon subcommand to find out the name of the icon we're looking for:
 
 ```bash
-webapp install -n Element -l https://app.element.io/
-```
-
-You can also specify an icon using the `-i` flag! First, use the findicon subcommand to find out the name of the icon:
-
-```bash
-webapp findicon element
+./webapp findicon element
 ```
 
 Looks like `element` is the name of the icon for Element! Convenient!
 Now let's use in our webapp:
 
 ```bash
-webapp install -n Element -l https://app.element.io/ -i element
+./webapp install -n Element -l https://app.element.io/ -i element
 ```
 
 Optionally, you can append the `-p` flag to the command above to have UBlock Origin and Decentraleyes pre-installed in the webapp:
 
 ```bash
-webapp install -n Element -l https://app.element.io/ -i element -p
+./webapp install -n Element -l https://app.element.io/ -i element -p
 ```
 
-After that, hover the mouse near the titlebar of the window, click the top right menu, and enable the add-ons manually, as shown in the screencast above.
+After that, hover the mouse near the titlebar of the window, click the top right menu, and enable the add-ons manually, as shown in the screencast below.
+
+https://user-images.githubusercontent.com/65264536/138526905-5a27d03e-f2fe-4152-ac39-2782dc1e8bc0.mp4
 
 ### Webapp removal
 
@@ -75,6 +80,8 @@ This script is mostly an automated version of the instructions described in [thi
 I also took a lot of inspiration from [Nativefier](https://github.com/nativefier/nativefier), [Webapp Manager](https://github.com/linuxmint/webapp-manager), [Ubuntu Web Remix](https://github.com/Ubuntu-Web/wadk), and [Chromium](https://www.chromium.org/)'s own implementation of webapps.
 
 Many thanks to [arkenfox](https://github.com/arkenfox) and [pyllyukko](https://github.com/pyllyukko) for their `user.js` configs, from where I took some of the privacy and security options used on this project.
+
+The colors from the logo are from the amazing [Nord Theme](https://www.nordtheme.com), by Arctic Studio.
 
 ## License
 
