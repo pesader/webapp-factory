@@ -1,6 +1,10 @@
-# Webapp Factory
+<p align="center">
+    <img src="./assets/logo.png" alt="logo" width="200"/>
+</p>
 
-![](./assets/logo.png)
+[![pt-br](https://img.shields.io/badge/LEIAME-PT--BR-pink.svg)](https://github.com/pesader/webapp-factory/README.ptbr.md)
+
+# Webapp Factory
 
 A simple shell script to generate webapps using Firefox, which
 
@@ -11,9 +15,9 @@ A simple shell script to generate webapps using Firefox, which
 - are setup with sane privacy and security defaults
 - can optionally come with privacy add-ons (UBlock Origin and Decentraleyes) pre-installed
 
-**DISCLAIMER:** this is my first bash script, so expect some rough edges here and there
+⚠ DISCLAIMER: this is my first bash script, so expect some rough edges here and there
 
-## How to use it
+## Tutorial
 
 First clone this repository, then `cd` into it:
 
@@ -32,10 +36,23 @@ To install webapps, this script needs at least a link to a website (first parame
 ./webapp install https://app.element.io/ Element
 ```
 
-You can also specify the link and the name of webapp using the `-l` (short for "link") and `-n` (short for "name") flags. There's also the option to set an icon using the `-i` flag! Let's first use the findicon subcommand to find out the name of the icon we're looking for:
+You can also specify the link and the name of webapp using the `-l` (short for "link") and `-n` (short for "name") flags. There's also the option to set an icon using the `-i` flag! Let's first use the `findicon` subcommand to find out the name of the icon we're looking for:
 
 ```bash
 ./webapp findicon element
+
+Papirus: element-nightly
+Papirus: io.elementary.photos
+Papirus: distributor-logo-elementary
+Papirus: gelemental
+Papirus: io.elementary.appcenter
+Papirus: element-desktop
+Papirus: io.elementary.code
+Papirus: com.github.eudaldgr.elements
+Papirus: io.elementary.mail
+Papirus: element-desktop-nightly
+Papirus: io.elementary.camera
+Papirus: element
 ```
 
 Looks like `element` is the name of the icon for Element! Convenient!
@@ -57,21 +74,13 @@ https://user-images.githubusercontent.com/65264536/138526905-5a27d03e-f2fe-4152-
 
 ### Webapp removal
 
-Simply type ```webapp remove``` followed by the name of the webapp you want to remove :)
-
-## Motivation
-
-Lots of popular applications (e.g.: Element, Telegram, Jitsi, etc) are built on top of cross-platform framework called Electron, which easily turns their website into a full blown desktop application. Problem is, each Electron app carries their own installation of the Chromium Web Browser, which ends up eating a lot of storage redundantly.
-
-Lucky for us, these applications can often be accessed directly from their website (that's why they use Electron after all!) which can be smoothly integrated into the desktop experience using webapps.
-
-Chromium based browsers, like Chromium itself and Brave, have implemented a native way of making webapps out of websites you visit on them, but Firefox doesn't (and has no plans to do so). Since Firefox comes pre-installed in most GNU/Linux distributions, I figured this would be a nice feature to have so I wrote this little script :)
+Simply type ```webapp remove``` followed by the name of the webapp you want to remove.
 
 ## Requirements
 
-This script is intended to work on GNU/Linux distributions, and was tested on Ubuntu 20.04 with Gnome 3.36.
+This script is intended to work on GNU/Linux distributions, and was tested on Ubuntu 20.04 with GNOME 3.36.
 
-Also, the [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/) icon set contains lots of additional icons! It is not required for the script to work, but it is recommended if you want to have nice looking icons for most of your webapps.
+For the script to work, it needs `firefox`, `bash`, and `wget`. The [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/) icon set is not necessary but highly recommended, since it contains lots of additional icons!
 
 ## Credit
 
@@ -81,8 +90,8 @@ I also took a lot of inspiration from [Nativefier](https://github.com/nativefier
 
 Many thanks to [arkenfox](https://github.com/arkenfox) and [pyllyukko](https://github.com/pyllyukko) for their `user.js` configs, from where I took some of the privacy and security options used on this project.
 
-The colors from the logo are from the amazing [Nord Theme](https://www.nordtheme.com), by Arctic Studio.
+The colors of the logo are from the amazing [Nord Theme](https://www.nordtheme.com), by Arctic Studio.
 
 ## License
 
-This program is licensed under the GPL-3.0
+This program is licensed under the GPL 3.0
