@@ -6,7 +6,7 @@
 
 # Webapp Factory
 
-Um pequeno programa para criar webapps usando Firefox, os quais
+Um pequeno programa para criar webapps usando Firefox, que
 
 - instalam instantaneamente e sem necessidade de root
 - são reconhecidos como aplicativos pelo seu ambiente desktop/gerenciador de janelas
