@@ -2,7 +2,7 @@
     <img src="./assets/logo.png" alt="logo" width="200"/>
 </p>
 
-[![en-us](https://img.shields.io/badge/README-EN--US-orange.svg)](https://github.com/pesader/webapp-factory/blob/master/README.md)
+[![en-us](https://img.shields.io/badge/README-EN--US-81A1C1.svg?style=for-the-badge)](https://github.com/pesader/webapp-factory/blob/master/README.md)
 
 # Webapp Factory
 
