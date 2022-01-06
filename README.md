@@ -2,7 +2,7 @@
     <img src="./assets/logo.png" alt="logo" width="200"/>
 </p>
 
-[![pt-br](https://img.shields.io/badge/LEIAME-PT--BR-pink.svg)](https://github.com/pesader/webapp-factory/blob/master/README.ptbr.md)
+[![pt-br](https://img.shields.io/badge/LEIAME-PT--BR-A3BE8C.svg?style=for-the-badge)](https://github.com/pesader/webapp-factory/blob/master/README.ptbr.md)
 
 # Webapp Factory
 
