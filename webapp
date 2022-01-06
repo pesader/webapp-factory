@@ -139,7 +139,8 @@ install(){
     __check_similar_name_installed $name
 
     # create a new Firefox profile with a unique name
-    PROFILE_NAME="$(uuidgen)-$name"
+    name_without_spaces=$(echo $name | sed 's/ /-/g')
+    PROFILE_NAME="$(uuidgen)-$name_without_spaces"
     firefox -CreateProfile $PROFILE_NAME
 
     # write profile name to a file, to facilitate uninstallation
@@ -173,9 +174,9 @@ Type=Application\n
 Name=$name\n
 Icon=$icon\n
 NoDisplay=false\n
-Exec=firefox --no-remote -P "$PROFILE_NAME" --name=$name --class=$name $link\n
+Exec=firefox --no-remote -P "$PROFILE_NAME" --name=$name_without_spaces --class=$PROFILE_NAME $link\n
 Categories=Utility;\n
-StartupWMClass=$name\n
+StartupWMClass=$PROFILE_NAME\n
 EOF
 )
 
@@ -205,8 +206,9 @@ remove(){
         esac
     done
 
-    if grep -qi $name $INSTALLED_FILENAME; then
-        app_id="$(grep -i $name $INSTALLED_FILENAME)"
+    name_without_spaces=$(echo $name | sed 's/ /./g')
+    if grep -qi $name_without_spaces $INSTALLED_FILENAME; then
+        app_id="$(grep -i $name_without_spaces $INSTALLED_FILENAME)"
         # remove desktop entry
         rm "$HOME/.local/share/applications/$app_id-webapp.desktop"
         # remove firefox profile
